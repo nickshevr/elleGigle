@@ -10,7 +10,7 @@ exports.createUserObj = function () {
         gender,
         firstName: name.split(' ')[0],
         lastName: name.split(' ')[1],
-        password: crypto.createHmac('sha1', lorem({ count: 1, units: 'words'}) + Date.now().toString()).digest('hex'),
+        password: crypto.createHmac('sha1', lorem({ count: 1, units: 'words'}) + Date.now().toString()).digest('hex').slice(0, 11),
         month: Math.floor(Math.random()*9),
         email: name.split(' ').join(`${lorem({ count: 1, units: 'words'})}`),
         day: Math.floor(Math.random()*28),
