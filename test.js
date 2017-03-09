@@ -21,11 +21,12 @@ driver.findElement(By.xpath(`//*[@id="BirthMonth"]/div[1]`)).sendKeys('a');
 driver.findElement(By.id('BirthDay')).sendKeys(userObect.day);
 driver.findElement(By.id('BirthYear')).sendKeys(userObect.year);
 driver.findElement(By.xpath(`//*[@id="Gender"]/div[1]`)).sendKeys('m'); // f -female, m - male
-
-try {
-    driver.wait(until.titleIs('webdriver - Google Search'), 1000000);
-} catch(e) {
-    driver.quit();
-}
+driver.findElement(By.xpath('//*[@id="submitbutton"]')).click();
+driver.sleep(1000);
+driver.findElement(By.xpath('//*[@id="tos-scroll-button"]')).click();
+driver.sleep(1000);
+driver.findElement(By.xpath('//*[@id="iagreebutton"]')).click();
+driver.sleep(5000);
+driver.quit();
 
 //<div class="goog-inline-block goog-flat-menu-button-caption" id=":0" role="option" aria-setsize="12" aria-posinset="1">January</div>
