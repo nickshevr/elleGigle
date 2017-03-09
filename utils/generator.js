@@ -13,7 +13,7 @@ exports.createUserObj = function () {
         password: crypto.createHmac('sha1', lorem({ count: 1, units: 'words'}) + Date.now().toString()).digest('hex').slice(0, 11),
         month: Math.floor(Math.random()*9),
         email: name.split(' ').join(`${lorem({ count: 1, units: 'words'})}`),
-        day: Math.floor(Math.random()*28),
+        day: Math.floor(Math.random()*27 + 1),
         year: Math.floor(Math.random()*30) + 1970
     }
 };
