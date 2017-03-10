@@ -1,6 +1,11 @@
 const nameGen = require('node-random-name');
 const crypto = require('crypto');
 const lorem = require('lorem-ipsum');
+const MonthFirstLetter = [65, 68, 74, 79, 78, 83];
+
+function getRandomElemFromArr(arr) {
+    return arr[Math.floor(Math.random()*arr.length)];
+}
 
 exports.createUserObj = function () {
     const gender = Math.random() > 0.4 ? 'female' : 'male';
@@ -11,7 +16,7 @@ exports.createUserObj = function () {
         firstName: name.split(' ')[0],
         lastName: name.split(' ')[1],
         password: crypto.createHmac('sha1', lorem({ count: 1, units: 'words'}) + Date.now().toString()).digest('hex').slice(0, 11),
-        month: Math.floor(Math.random()*9),
+        month: String.fromCharCode(getRandomElemFromArr(MonthFirstLetter)),
         email: name.split(' ').join(`${lorem({ count: 1, units: 'words'})}`),
         day: Math.floor(Math.random()*27 + 1),
         year: Math.floor(Math.random()*30) + 1970
