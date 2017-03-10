@@ -22,6 +22,7 @@ driver.findElement(By.id('BirthDay')).sendKeys(userObect.day);
 driver.findElement(By.id('BirthYear')).sendKeys(userObect.year);
 driver.findElement(By.xpath(`//*[@id="Gender"]/div[1]`)).sendKeys(userObect.gender.slice(0, 1)); // f -female, m - male
 driver.findElement(By.xpath('//*[@id="submitbutton"]')).click();
+driver.findElement(By.xpath('//*[@id="submitbutton"]')).click();
 driver.sleep(1000);
 driver.findElement(By.xpath('//*[@id="tos-scroll-button"]')).click();
 driver.sleep(1000);
