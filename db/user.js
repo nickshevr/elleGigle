@@ -40,9 +40,6 @@ const Schema = new mongoose.Schema({
 
 Schema.statics.registerUser = function () {
     const userObect = generator.createUserObj();
-
-    //const phone = await phoneApi.getNumber();
-
     const driver = new webdriver.Builder()
         .forBrowser('chrome')
         .build();
