@@ -14,6 +14,7 @@ getProxy().then(res => {
     const userObect = generator.createUserObj();
 
     driver.get('https://accounts.google.com/SignUp');
+    driver.manage().window().maximize();
     driver.sleep(4000);
     driver.findElement(By.id('FirstName')).sendKeys(userObect.firstName);
     driver.findElement(By.id('LastName')).sendKeys(userObect.lastName);
