@@ -8,12 +8,13 @@ const getProxy = require('./utils/https-proxy').getProxyList;
 getProxy().then(res => {
     const driver = new webdriver.Builder()
         .forBrowser('chrome')
-        .setProxy(proxy.manual({https: "94.177.198.7:3128"}))
+        .setProxy(proxy.manual({https: `${res[23].ip}:${res[23].port}`}))
         .build();
 
     const userObect = generator.createUserObj();
 
     driver.get('https://accounts.google.com/SignUp');
+    driver.sleep(4000);
     driver.findElement(By.id('FirstName')).sendKeys(userObect.firstName);
     driver.findElement(By.id('LastName')).sendKeys(userObect.lastName);
     driver.findElement(By.id('GmailAddress')).sendKeys(userObect.email.split('@')[0]);
@@ -23,7 +24,7 @@ getProxy().then(res => {
     driver.findElement(By.id('BirthDay')).sendKeys(userObect.day);
     driver.findElement(By.id('BirthYear')).sendKeys(userObect.year);
     driver.findElement(By.xpath(`//*[@id="Gender"]/div[1]`)).sendKeys(userObect.gender.slice(0, 1)); // f -female, m - male
-    driver.findElement(By.xpath('//*[@id="submitbutton"]')).click();
+    driver.sleep(2000);
     driver.findElement(By.xpath('//*[@id="submitbutton"]')).click();
     driver.sleep(1000);
     driver.findElement(By.xpath('//*[@id="tos-scroll-button"]')).click();
@@ -32,6 +33,7 @@ getProxy().then(res => {
     driver.sleep(5000);
 
     driver.getTitle().then(function(title) {
+        driver.sleep(5000);
         console.log(title);
     });
 
