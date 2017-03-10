@@ -39,5 +39,3 @@ getProxy().then(res => {
 
     driver.quit();
 });
-
-//<div class="goog-inline-block goog-flat-menu-button-caption" id=":0" role="option" aria-setsize="12" aria-posinset="1">January</div>
