@@ -19,6 +19,7 @@
     "progress": "^1.1.8",
     "request": "^2.81.0",
     "request-promise": "^4.1.1",
-    "selenium-webdriver": "3.3.0"
+    "selenium-webdriver": "3.3.0",
+    "webdriver-sync": "^1.0.0"
   }
 }
